@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Grocery List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/Smart Grocery.png">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>SpendWise Grocery List</h1>
+            <div class="currency-selector">
+                <select id="currency-select">
+                    <option value="USD">USD ($)</option>
+                    <option value="EUR">EUR (€)</option>
+                    <option value="GBP">GBP (£)</option>
+                    <option value="JPY">JPY (¥)</option>
+                    <option value="INR">INR (₹)</option>
+                </select>
+            </div>
+        </header>
+
+        <div class="lists-container">
+            <div class="lists-sidebar">
+                <button id="new-list-btn" class="btn-primary">
+                    <i class="fas fa-plus"></i> New List
+                </button>
+                <ul id="lists-menu"></ul>
+            </div>
+
+            <div class="list-content">
+                <div class="list-header">
+                    <h2 id="current-list-name">New List</h2>
+                    <div class="list-actions">
+                        <input type="text" id="list-name-input" placeholder="List name">
+                        <button id="rename-list-btn" class="btn-secondary">
+                            <i class="fas fa-edit"></i> Rename
+                        </button>
+                        <button id="delete-list-btn" class="btn-danger">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                    </div>
+                </div>
+
+                <div class="budget-section">
+                    <div class="budget-input">
+                        <label for="max-budget">Max Budget:</label>
+                        <input type="number" id="max-budget" placeholder="Set your max budget">
+                        <select id="budget-currency">
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
+                            <option value="JPY">JPY</option>
+                            <option value="INR">INR</option>
+                        </select>
+                    </div>
+                    <div class="price-range">
+                        <label for="min-price">Price Range:</label>
+                        <input type="number" id="min-price" placeholder="Min">
+                        <span>to</span>
+                        <input type="number" id="max-price" placeholder="Max">
+                    </div>
+                </div>
+
+                <div class="total-display">
+                    <div class="total-amount">
+                        <span>Total:</span>
+                        <span id="total-amount">0</span>
+                        <span id="currency-symbol">$</span>
+                    </div>
+                    <div class="budget-status">
+                        <span id="budget-status-text"></span>
+                    </div>
+                </div>
+
+                <div class="item-form">
+                    <input type="text" id="item-name" placeholder="Item name">
+                    <input type="number" id="item-price" placeholder="Price">
+                    <button id="add-item-btn" class="btn-primary">
+                        <i class="fas fa-plus"></i> Add Item
+                    </button>
+                </div>
+
+                <div class="item-list-container">
+                    <ul id="grocery-list"></ul>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="save-pdf-btn" class="btn-secondary">
+                        <i class="fas fa-file-pdf"></i> Save as PDF
+                    </button>
+                    <button id="save-all-pdf-btn" class="btn-secondary">
+                        <i class="fas fa-file-archive"></i> Save All Lists as PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="notification" class="notification hidden">
+        <div class="notification-content">
+            <span id="notification-message"></span>
+            <button id="close-notification">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.16.0/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
